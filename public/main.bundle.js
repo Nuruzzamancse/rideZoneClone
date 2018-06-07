@@ -1318,6 +1318,7 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.delFunc = function (prod) {
         this.products.splice(this.products.indexOf(prod), 1);
         this.productService.deleteProduct(prod._id).subscribe(function (respnse) {
+            console.log(respnse.message);
         });
     };
     HomeComponent = __decorate([
