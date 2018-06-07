@@ -473,7 +473,7 @@ module.exports = "\r\n"
 /***/ "./src/app/components/cart/cart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-primary\" style=\"width: 70%; margin-left: 15%\">\r\n  <div class=\"panel-heading\">Cart Checkout</div>\r\n  <div class=\"panel-body\">\r\n\r\n\r\n      <table  class=\"table\">\r\n        <thead>\r\n        <tr>\r\n          <th style=\"text-align: center\">Product Name</th>\r\n          <th style=\"text-align: center\">Product Image</th>\r\n          <th style=\"text-align: center\">Product Quantity</th>\r\n          <th style=\"text-align: center\">Product Price</th>\r\n          <th style=\"text-align: center\">Total Product Price</th>\r\n          <th>Action</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody *ngFor=\"let product of myProductArray; let i = index\">\r\n\r\n\r\n        <tr class=\"success\" *ngIf=\"product.myProductCount\">\r\n          <td style=\"text-align: center\">{{product.myProduct.name}}</td>\r\n\r\n          <td style=\"text-align: center\"><img src=\"http://ridezonebd.us.openode.io/{{product.myProduct.picture[0]}}\" alt=\"...\" class=\"img-responsive\" height=\"50px\" width=\"80px\">\r\n          </td>\r\n          <td style=\"text-align: center\">{{product.myProductCount}}</td>\r\n          <td style=\"text-align: center\">${{product.myProduct.price}}</td>\r\n          <td style=\"text-align: center\">${{product.myProduct.price*product.myProductCount}}</td>\r\n\r\n          <td>\r\n          <ul class=\"nav nav-pills nav-stacked\">\r\n\r\n            <li class=\"dropdown\">\r\n              <button class=\"dropdown-toggle\" class=\"btn btn-danger\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-remove\"></span> Remove</button>\r\n              <ul class=\"dropdown-menu\">\r\n                <li (click)=\"reduceByOne(product.myProduct.name)\"><a >Remove 1</a></li>\r\n                <li (click)=\"removeAll(product.myProduct.name)\"><a >Remove all</a></li>\r\n\r\n              </ul>\r\n            </li>\r\n          </ul>\r\n          </td>\r\n\r\n\r\n\r\n        </tr>\r\n\r\n\r\n\r\n        </tbody>\r\n        <div *ngIf=\"!myProductArray\" class=\"alert alert-warning\">\r\n          <strong>Warning!</strong> You have not added any cart to Buy.\r\n        </div>\r\n        <td></td>\r\n        <td></td>\r\n        <td></td>\r\n        <td></td>\r\n        <td><h4 style=\"margin-bottom: 2%\">Total = ${{sum}}</h4></td>\r\n\r\n        <td></td>\r\n\r\n\r\n\r\n        <tr>\r\n\r\n          <td>\r\n\r\n               <a [routerLink]=\"['/']\" style=\"text-decoration: none\">  <button type=\"button\" class=\"btn btn-default\"  ><span class=\"glyphicon glyphicon-shopping-cart\"></span>Continue Shopping</button></a>\r\n\r\n          </td>\r\n\r\n          <td></td>\r\n          <td></td>\r\n          <td></td>\r\n\r\n          <td></td>\r\n          <td>\r\n            <button (click)=\"continueShopping()\" type=\"button\" class=\"btn btn-success\" >\r\n              Checkout <span class=\"glyphicon glyphicon-play\"></span>\r\n            </button></td>\r\n\r\n        </tr>\r\n      </table>\r\n\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"panel panel-primary\" style=\"width: 70%; margin-left: 15%\">\r\n  <div class=\"panel-heading\">Cart Checkout</div>\r\n  <div class=\"panel-body\">\r\n\r\n    <div class=\"table-responsive\">\r\n\r\n      <table  class=\"table\">\r\n        <thead>\r\n        <tr>\r\n          <th style=\"text-align: center\">Product Name</th>\r\n          <th style=\"text-align: center\">Product Image</th>\r\n          <th style=\"text-align: center\">Product Quantity</th>\r\n          <th style=\"text-align: center\">Product Price</th>\r\n          <th style=\"text-align: center\">Total Product Price</th>\r\n          <th>Action</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody *ngFor=\"let product of myProductArray; let i = index\">\r\n\r\n\r\n        <tr class=\"success\" *ngIf=\"product.myProductCount\">\r\n          <td style=\"text-align: center\">{{product.myProduct.name}}</td>\r\n\r\n          <td style=\"text-align: center\"><img src=\"http://ridezonebd.us.openode.io/{{product.myProduct.picture[0]}}\" alt=\"...\" class=\"img-responsive\" height=\"50px\" width=\"80px\">\r\n          </td>\r\n          <td style=\"text-align: center\">{{product.myProductCount}}</td>\r\n          <td style=\"text-align: center\">${{product.myProduct.price}}</td>\r\n          <td style=\"text-align: center\">${{product.myProduct.price*product.myProductCount}}</td>\r\n\r\n          <td>\r\n          <ul class=\"nav nav-pills nav-stacked\">\r\n\r\n            <li class=\"dropdown\">\r\n              <button class=\"dropdown-toggle\" class=\"btn btn-danger\" data-toggle=\"dropdown\"><span class=\"glyphicon glyphicon-remove\"></span> Remove</button>\r\n              <ul class=\"dropdown-menu\">\r\n                <li (click)=\"reduceByOne(product.myProduct.name)\"><a >Remove 1</a></li>\r\n                <li (click)=\"removeAll(product.myProduct.name)\"><a >Remove all</a></li>\r\n\r\n              </ul>\r\n            </li>\r\n          </ul>\r\n          </td>\r\n\r\n\r\n\r\n        </tr>\r\n\r\n\r\n\r\n        </tbody>\r\n        <div *ngIf=\"!myProductArray\" class=\"alert alert-warning\">\r\n          <strong>Warning!</strong> You have not added any cart to Buy.\r\n        </div>\r\n        <td></td>\r\n        <td></td>\r\n        <td></td>\r\n        <td></td>\r\n        <td><h4 style=\"margin-bottom: 2%\">Total = ${{sum}}</h4></td>\r\n\r\n        <td></td>\r\n\r\n\r\n\r\n        <tr>\r\n\r\n          <td>\r\n\r\n               <a [routerLink]=\"['/']\" style=\"text-decoration: none\">  <button type=\"button\" class=\"btn btn-default\"  ><span class=\"glyphicon glyphicon-shopping-cart\"></span>Continue Shopping</button></a>\r\n\r\n          </td>\r\n\r\n          <td></td>\r\n          <td></td>\r\n          <td></td>\r\n\r\n          <td></td>\r\n          <td>\r\n            <button (click)=\"continueShopping()\" type=\"button\" class=\"btn btn-success\" >\r\n              Checkout <span class=\"glyphicon glyphicon-play\"></span>\r\n            </button></td>\r\n\r\n        </tr>\r\n      </table>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -880,7 +880,7 @@ module.exports = ""
 /***/ "./src/app/components/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-info\" style=\"width: 70%; margin-left: 15%\">\r\n  <div class=\"panel-heading\" style=\"height: 60px\" ><b class=\"text-info\" style=\"margin-left: 40%\">Waiting to shipment</b> </div>\r\n  <div class=\"panel-body\">\r\n\r\n    <table  class=\"table\">\r\n      <thead>\r\n      <tr>\r\n        <th style=\"text-align: center\">User Name</th>\r\n        <th style=\"text-align: center\">Product Name</th>\r\n        <th >Product Image</th>\r\n      </tr>\r\n      </thead>\r\n\r\n      <tbody *ngFor=\"let obj of buyObj; let i = index\">\r\n\r\n      <tr *ngIf=\"obj.product\">\r\n        <td style=\"text-align: center\">{{obj.name}}</td>\r\n        <td style=\"text-align: center\">{{obj.product.name}}</td>\r\n\r\n        <td style=\"text-align: center\"><img src=\"http://localhost:3000/{{obj.product.picture[0]}}\" alt=\"...\" class=\"img-responsive\" height=\"50px\" width=\"80px\">\r\n        </td>\r\n      </tr>\r\n\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<div class=\"panel panel-info\" style=\"width: 70%; margin-left: 15%\">\r\n  <div class=\"panel-heading\" style=\"height: 60px\" ><b class=\"text-info\" style=\"margin-left: 40%\">Buy List</b> </div>\r\n            <div class=\"panel-body\">\r\n\r\n              <table  class=\"table\">\r\n                <thead>\r\n                <tr>\r\n                  <th style=\"text-align: center\">User Name</th>\r\n                  <th style=\"text-align: center\">Product Name</th>\r\n                  <th >Product Image</th>\r\n                </tr>\r\n                </thead>\r\n\r\n                <tbody *ngFor=\"let obj of myObj; let i = index\">\r\n\r\n                <tr *ngIf=\"obj.product\">\r\n                  <td style=\"text-align: center\">{{obj.name}}</td>\r\n                  <td style=\"text-align: center\">{{obj.product.name}}</td>\r\n\r\n                  <td style=\"text-align: center\"><img src=\"http://ridezonebd.us.openode.io/{{obj.product.picture[0]}}\" alt=\"...\" class=\"img-responsive\" height=\"50px\" width=\"80px\">\r\n                  </td>\r\n                </tr>\r\n\r\n                </tbody>\r\n              </table>\r\n\r\n            </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+module.exports = "<div class=\"panel panel-info\" style=\"width: 70%; margin-left: 15%\">\r\n  <div class=\"panel-heading\" style=\"height: 60px\" ><b class=\"text-info\" style=\"margin-left: 40%\">Waiting to shipment</b> </div>\r\n  <div class=\"panel-body\">\r\n\r\n    <table  class=\"table\">\r\n      <thead>\r\n      <tr>\r\n        <th style=\"text-align: center\">User Name</th>\r\n        <th style=\"text-align: center\">Product Name</th>\r\n        <th >Product Image</th>\r\n      </tr>\r\n      </thead>\r\n\r\n      <tbody *ngFor=\"let obj of buyObj; let i = index\">\r\n\r\n      <tr *ngIf=\"obj.product\">\r\n        <td style=\"text-align: center\">{{obj.name}}</td>\r\n        <td style=\"text-align: center\">{{obj.product.name}}</td>\r\n\r\n        <td style=\"text-align: center\"><img src=\"/{{obj.product.picture[0]}}\" alt=\"...\" class=\"img-responsive\" height=\"50px\" width=\"80px\">\r\n        </td>\r\n      </tr>\r\n\r\n      </tbody>\r\n    </table>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<div class=\"panel panel-info\" style=\"width: 70%; margin-left: 15%\">\r\n  <div class=\"panel-heading\" style=\"height: 60px\" ><b class=\"text-info\" style=\"margin-left: 40%\">Buy List</b> </div>\r\n            <div class=\"panel-body\">\r\n\r\n              <table  class=\"table\">\r\n                <thead>\r\n                <tr>\r\n                  <th style=\"text-align: center\">User Name</th>\r\n                  <th style=\"text-align: center\">Product Name</th>\r\n                  <th >Product Image</th>\r\n                </tr>\r\n                </thead>\r\n\r\n                <tbody *ngFor=\"let obj of myObj; let i = index\">\r\n\r\n                <tr *ngIf=\"obj.product\">\r\n                  <td style=\"text-align: center\">{{obj.name}}</td>\r\n                  <td style=\"text-align: center\">{{obj.product.name}}</td>\r\n\r\n                  <td style=\"text-align: center\"><img src=\"http://ridezonebd.us.openode.io/{{obj.product.picture[0]}}\" alt=\"...\" class=\"img-responsive\" height=\"50px\" width=\"80px\">\r\n                  </td>\r\n                </tr>\r\n\r\n                </tbody>\r\n              </table>\r\n\r\n            </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -936,30 +936,31 @@ var DashboardComponent = /** @class */ (function () {
                             //if(cnt==1)
                             dummyObj.name = user.name;
                             dummyObj.product = response.data;
-                            console.log(dummyObj);
+                            //console.log(dummyObj);
                             _this.buyObj.push(dummyObj);
-                            console.log('-------===========----------');
-                            console.log(_this.buyObj);
+                            //console.log('-------===========----------')
+                            //console.log(this.buyObj);
                             cnt++;
                         });
                     }
                 console.log('-----------------');
                 var cnt2 = 1;
                 var userBuyList = user.buyList;
-                for (var _a = 0, userBuyList_1 = userBuyList; _a < userBuyList_1.length; _a++) {
-                    var productId = userBuyList_1[_a];
-                    _this.productService.getSingleProduct(productId).subscribe(function (response) {
-                        var dummyObj = {};
-                        // if(cnt2==1)
-                        dummyObj.name = user.name;
-                        dummyObj.product = response.data;
-                        console.log(dummyObj);
-                        _this.myObj.push(dummyObj);
-                        console.log('Fucking Here');
-                        console.log(_this.myObj);
-                        cnt2++;
-                    });
-                }
+                if (userBuyList)
+                    for (var _a = 0, userBuyList_1 = userBuyList; _a < userBuyList_1.length; _a++) {
+                        var productId = userBuyList_1[_a];
+                        _this.productService.getSingleProduct(productId).subscribe(function (response) {
+                            var dummyObj = {};
+                            // if(cnt2==1)
+                            dummyObj.name = user.name;
+                            dummyObj.product = response.data;
+                            console.log(dummyObj);
+                            _this.myObj.push(dummyObj);
+                            console.log('Fucking Here');
+                            console.log(_this.myObj);
+                            cnt2++;
+                        });
+                    }
             };
             for (var _i = 0, _a = _this.users; _i < _a.length; _i++) {
                 var user = _a[_i];
@@ -1252,7 +1253,7 @@ module.exports = "\r\n\r\n.card {\r\n  -webkit-box-shadow: 0 4px 8px 0 rgba(0,0,
 /***/ "./src/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<div class=\"jumbotron text-center\" style=\"height: 130px\">-->\r\n  <!--<h1 style=\"text-align: center;margin-top: 1px\">Ride Zone</h1>-->\r\n  <!--&lt;!&ndash;<p class=\"lead\"> This is the lasgest online Market in Bangladesh</p>&ndash;&gt;-->\r\n\r\n<!--</div>-->\r\n\r\n<!--<div class=\"container-fluid container\">-->\r\n  <!--<div *ngIf=\"products\" class=\"row\">-->\r\n    <!--<div *ngFor=\"let product of products;let i = index\">-->\r\n\r\n      <!--<div *ngIf=\"(i%4 == 0)\" class=\"col-md-3\" style=\"margin-left: 0px\">-->\r\n        <!--<h2 >{{product.name}}</h2>-->\r\n        <!--<img src=\"http://localhost:3000/{{product.picture}}\" style=\"width: 100%\">-->\r\n        <!--<h4><b>Price:</b> <span style=\"color: crimson\">{{product.price}}</span></h4>-->\r\n\r\n        <!--<p>{{product.description}}</p>-->\r\n      <!--</div>-->\r\n\r\n      <!--<div *ngIf=\"(i%4 != 0)\" class=\"col-md-3\">-->\r\n        <!--<h2 >{{product.name}}</h2>-->\r\n        <!--<img src=\"http://localhost:3000/{{product.picture}}\" style=\"width: 100%\">-->\r\n        <!--<h4 ><b>Price:</b> <span style=\"color: green\">{{product.price}}</span></h4>-->\r\n\r\n        <!--<p>{{product.description}}</p>-->\r\n      <!--</div>-->\r\n    <!--</div>-->\r\n  <!--</div>-->\r\n<!--</div>-->\r\n\r\n\r\n<!--card-->\r\n\r\n<!--<div *ngIf=\"products\" class=\"row\">-->\r\n\r\n  <!--<div *ngFor=\"let product of products;let i = index\" class=\"col-md-3\">-->\r\n\r\n            <!--<div  class=\"card\">-->\r\n              <!--<h2>{{product.name}}</h2>-->\r\n              <!--<img src=\"http://localhost:3000/{{product.picture}}\" alt=\"Avatar\" style=\"width:100%\" height=\"180px\" width=\"250px\">-->\r\n              <!--<div class=\"container\">-->\r\n                <!--<h4><b>Price:</b>{{product.price}}</h4>-->\r\n                <!--<p>{{product.description}}</p>-->\r\n              <!--</div>-->\r\n            <!--</div>-->\r\n\r\n  <!--</div>-->\r\n<!--</div>-->\r\n\r\n<!--card end-->\r\n\r\n\r\n<div *ngIf=\"products\" class=\"row\">\r\n    <div *ngFor=\"let product of products;let i = index\" class=\"col-sm-6 col-md-4\">\r\n\r\n      <div  class=\"thumbnail\">\r\n        <h3 style=\"float: left\">{{product.code}}</h3>\r\n\r\n        <!--<h1 style=\"color: blue\">Asadul</h1>-->\r\n\r\n        <button (click)=\"delFunc(product)\" *ngIf=\"isAdmin\" style=\"float: right;margin-top: 18px;margin-right: 15px;\" type=\"button\" class=\"btn btn-danger btn-sm\">\r\n          <span class=\"glyphicon glyphicon-trash\"></span> Trash\r\n        </button>\r\n\r\n        <button *ngIf=\"isAdmin\" (click)=\"editProduct(product._id)\" style=\"float: right;margin-top: 18px;margin-right: 15px;\" type=\"button\" class=\"btn btn-primary btn-sm\">\r\n          <span class=\"glyphicon glyphicon-edit\"></span> Edit\r\n        </button>\r\n\r\n\r\n        <h3 (click)=\"detailsView(product._id)\" style=\"color: deepskyblue;text-align: center\">{{product.name}}</h3>\r\n\r\n        <img (click)=\"detailsView(product._id)\" src=\"http://ridezonebd.us.openode.io/{{product.picture[0]}}\" alt=\"...\" class=\"img-responsive\">\r\n        <div class=\"caption\">\r\n          <p class=\"description\">{{ product.description }}</p>\r\n          <div class=\"clearfix\">\r\n            <div class=\"price pull-left\">${{ product.price }}</div>\r\n\r\n\r\n            <a (click)=\"cart(1,product._id,product)\" class=\"btn btn-success pull-right\" role=\"button\">Add to Shopping Cart</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n"
+module.exports = "<!--<div class=\"jumbotron text-center\" style=\"height: 130px\">-->\r\n  <!--<h1 style=\"text-align: center;margin-top: 1px\">Ride Zone</h1>-->\r\n  <!--&lt;!&ndash;<p class=\"lead\"> This is the lasgest online Market in Bangladesh</p>&ndash;&gt;-->\r\n\r\n<!--</div>-->\r\n\r\n<!--<div class=\"container-fluid container\">-->\r\n  <!--<div *ngIf=\"products\" class=\"row\">-->\r\n    <!--<div *ngFor=\"let product of products;let i = index\">-->\r\n\r\n      <!--<div *ngIf=\"(i%4 == 0)\" class=\"col-md-3\" style=\"margin-left: 0px\">-->\r\n        <!--<h2 >{{product.name}}</h2>-->\r\n        <!--<img src=\"http://localhost:3000/{{product.picture}}\" style=\"width: 100%\">-->\r\n        <!--<h4><b>Price:</b> <span style=\"color: crimson\">{{product.price}}</span></h4>-->\r\n\r\n        <!--<p>{{product.description}}</p>-->\r\n      <!--</div>-->\r\n\r\n      <!--<div *ngIf=\"(i%4 != 0)\" class=\"col-md-3\">-->\r\n        <!--<h2 >{{product.name}}</h2>-->\r\n        <!--<img src=\"http://localhost:3000/{{product.picture}}\" style=\"width: 100%\">-->\r\n        <!--<h4 ><b>Price:</b> <span style=\"color: green\">{{product.price}}</span></h4>-->\r\n\r\n        <!--<p>{{product.description}}</p>-->\r\n      <!--</div>-->\r\n    <!--</div>-->\r\n  <!--</div>-->\r\n<!--</div>-->\r\n\r\n\r\n<!--card-->\r\n\r\n<!--<div *ngIf=\"products\" class=\"row\">-->\r\n\r\n  <!--<div *ngFor=\"let product of products;let i = index\" class=\"col-md-3\">-->\r\n\r\n            <!--<div  class=\"card\">-->\r\n              <!--<h2>{{product.name}}</h2>-->\r\n              <!--<img src=\"http://localhost:3000/{{product.picture}}\" alt=\"Avatar\" style=\"width:100%\" height=\"180px\" width=\"250px\">-->\r\n              <!--<div class=\"container\">-->\r\n                <!--<h4><b>Price:</b>{{product.price}}</h4>-->\r\n                <!--<p>{{product.description}}</p>-->\r\n              <!--</div>-->\r\n            <!--</div>-->\r\n\r\n  <!--</div>-->\r\n<!--</div>-->\r\n\r\n<!--card end-->\r\n\r\n\r\n<div *ngIf=\"products\" class=\"row\">\r\n    <div *ngFor=\"let product of products;let i = index\" class=\"col-sm-6 col-md-4\">\r\n\r\n      <div  class=\"thumbnail\">\r\n        <h3 style=\"float: left\">{{product.code}}</h3>\r\n\r\n        <!--<h1 style=\"color: blue\">Asadul</h1>-->\r\n\r\n        <button (click)=\"delFunc(product)\" *ngIf=\"isAdmin\" style=\"float: right;margin-top: 18px;margin-right: 15px;\" type=\"button\" class=\"btn btn-danger btn-sm\">\r\n          <span class=\"glyphicon glyphicon-trash\"></span> Trash\r\n        </button>\r\n\r\n        <button *ngIf=\"isAdmin\" (click)=\"editProduct(product._id)\" style=\"float: right;margin-top: 18px;margin-right: 15px;\" type=\"button\" class=\"btn btn-primary btn-sm\">\r\n          <span class=\"glyphicon glyphicon-edit\"></span> Edit\r\n        </button>\r\n\r\n\r\n        <h3 (click)=\"detailsView(product._id)\" style=\"color: deepskyblue;text-align: center\">{{product.name}}</h3>\r\n\r\n        <img (click)=\"detailsView(product._id)\" src=\"http://app-a2062cdd-cd38-4cd4-86e2-48ea34537986.cleverapps.io/{{product.picture[0]}}\" alt=\"...\" class=\"img-responsive\">\r\n        <div class=\"caption\">\r\n          <p class=\"description\">{{ product.description }}</p>\r\n          <div class=\"clearfix\">\r\n            <div class=\"price pull-left\">${{ product.price }}</div>\r\n\r\n\r\n            <a (click)=\"cart(1,product._id,product)\" class=\"btn btn-success pull-right\" role=\"button\">Add to Shopping Cart</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -1561,6 +1562,7 @@ module.exports = "<br>\n<br>\n<br>\n<br>\n<br>\n\n<div class=\"container-fluid\"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_file_service__ = __webpack_require__("./src/app/services/file.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_product_service__ = __webpack_require__("./src/app/services/product.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1579,7 +1581,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var uri = '/product';
+
+var uri = __WEBPACK_IMPORTED_MODULE_9__environments_environment__["a" /* environment */].baseUrl + "/product";
 var ur2;
 var PhotoUploadComponent = /** @class */ (function () {
     // http://localhost:4200/photo/5aca319a784c6127c01e3f48
@@ -1591,7 +1594,7 @@ var PhotoUploadComponent = /** @class */ (function () {
         this.router = router;
         this.attachmentList = [];
         var id = this.route.snapshot.paramMap.get('id');
-        ur2 = "/product/" + id;
+        ur2 = __WEBPACK_IMPORTED_MODULE_9__environments_environment__["a" /* environment */].baseUrl + "/product/" + id;
         console.log('Here ' + id + ' there');
         console.log(ur2);
         this.product = [];
@@ -1728,7 +1731,7 @@ module.exports = ""
 /***/ "./src/app/components/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-primary\" style=\"width: 70%; margin-left: 15%\">\r\n  <div class=\"panel-heading\">Profile</div>\r\n  <div class=\"panel-body\">\r\n\r\n\r\n    <table  class=\"table\">\r\n      <thead>\r\n      <tr>\r\n        <th style=\"text-align: center\">Name</th>\r\n        <th style=\"text-align: center\">Email</th>\r\n        <th style=\"text-align: center\">Username</th>\r\n        <th style=\"text-align: center\">Action</th>\r\n\r\n      </tr>\r\n      </thead>\r\n\r\n\r\n        <tbody *ngFor=\"let user of users;let i = index\">\r\n                <tr  *ngIf=\"(i%2==0)\">\r\n                  <td style=\"text-align: center\">{{user.name}}</td>\r\n                  <td style=\"text-align: center\">{{user.email}}</td>\r\n                  <td style=\"text-align: center\">{{user.username}}</td>\r\n                  <!--<td style=\"text-align: center\">{{user.isAdmin}}</td>-->\r\n                  <td *ngIf=\"user.isAdmin==false\" style=\"text-align: center\"><a (click)=\"deleteProfile(user)\" class=\"btn btn-danger a-btn-slide-text\">\r\n                    <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\r\n                    <span><strong>Delete</strong></span>\r\n                  </a></td>\r\n                </tr>\r\n\r\n                <tr class=\"success\" *ngIf=\"(i%2!=0)\">\r\n                  <td style=\"text-align: center\">{{user.name}}</td>\r\n                  <td style=\"text-align: center\">{{user.email}}</td>\r\n                  <td style=\"text-align: center\">{{user.username}}</td>\r\n                  <!--<td style=\"text-align: center\">{{user.isAdmin}}</td>-->\r\n\r\n                  <td *ngIf=\"user.isAdmin==false\" style=\"text-align: center\"><a (click)=\"deleteProfile(user)\" class=\"btn btn-danger a-btn-slide-text\">\r\n                    <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\r\n                    <span><strong>Delete</strong></span>\r\n                  </a></td>\r\n\r\n                </tr>\r\n        </tbody>\r\n\r\n\r\n\r\n        <tbody *ngIf=\"!users\">\r\n        <tr *ngIf=\"singleUser\" class=\"success\">\r\n          <td style=\"text-align: center\">{{singleUser.name}}</td>\r\n          <td style=\"text-align: center\">{{singleUser.email}}</td>\r\n          <td style=\"text-align: center\">{{singleUser.username}}</td>\r\n          <td style=\"text-align: center\"><a (click)=\"editProfile(singleUser._id)\" class=\"btn btn-info a-btn-slide-text\">\r\n          <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\r\n          <span><strong>Edit</strong></span>\r\n        </a></td>\r\n        </tr>\r\n        </tbody>\r\n\r\n\r\n    </table>\r\n\r\n\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n"
+module.exports = "<div class=\"panel panel-primary\" style=\"width: 70%; margin-left: 15%\">\r\n  <div class=\"panel-heading\">Profile</div>\r\n  <div class=\"panel-body\">\r\n\r\n    <div class=\"table-responsive\">\r\n\r\n    <table  class=\"table\">\r\n      <thead>\r\n      <tr>\r\n        <th style=\"text-align: center\">Name</th>\r\n        <th style=\"text-align: center\">Email</th>\r\n        <th style=\"text-align: center\">Username</th>\r\n        <th style=\"text-align: center\">Action</th>\r\n\r\n      </tr>\r\n      </thead>\r\n\r\n\r\n        <tbody *ngFor=\"let user of users;let i = index\">\r\n                <tr  *ngIf=\"(i%2==0)\">\r\n                  <td style=\"text-align: center\">{{user.name}}</td>\r\n                  <td style=\"text-align: center\">{{user.email}}</td>\r\n                  <td style=\"text-align: center\">{{user.username}}</td>\r\n                  <!--<td style=\"text-align: center\">{{user.isAdmin}}</td>-->\r\n                  <td *ngIf=\"user.isAdmin==false\" style=\"text-align: center\"><a (click)=\"deleteProfile(user)\" class=\"btn btn-danger a-btn-slide-text\">\r\n                    <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\r\n                    <span><strong>Delete</strong></span>\r\n                  </a></td>\r\n                </tr>\r\n\r\n                <tr class=\"success\" *ngIf=\"(i%2!=0)\">\r\n                  <td style=\"text-align: center\">{{user.name}}</td>\r\n                  <td style=\"text-align: center\">{{user.email}}</td>\r\n                  <td style=\"text-align: center\">{{user.username}}</td>\r\n                  <!--<td style=\"text-align: center\">{{user.isAdmin}}</td>-->\r\n\r\n                  <td *ngIf=\"user.isAdmin==false\" style=\"text-align: center\"><a (click)=\"deleteProfile(user)\" class=\"btn btn-danger a-btn-slide-text\">\r\n                    <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\r\n                    <span><strong>Delete</strong></span>\r\n                  </a></td>\r\n\r\n                </tr>\r\n        </tbody>\r\n\r\n\r\n\r\n        <tbody *ngIf=\"!users\">\r\n        <tr *ngIf=\"singleUser\" class=\"success\">\r\n          <td style=\"text-align: center\">{{singleUser.name}}</td>\r\n          <td style=\"text-align: center\">{{singleUser.email}}</td>\r\n          <td style=\"text-align: center\">{{singleUser.username}}</td>\r\n          <td style=\"text-align: center\"><a (click)=\"editProfile(singleUser._id)\" class=\"btn btn-info a-btn-slide-text\">\r\n          <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\r\n          <span><strong>Edit</strong></span>\r\n        </a></td>\r\n        </tr>\r\n        </tbody>\r\n\r\n\r\n    </table>\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -2022,6 +2025,7 @@ var Product = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__("./node_modules/angular2-jwt/angular2-jwt.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2035,6 +2039,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AuthService = /** @class */ (function () {
     function AuthService(http) {
         this.http = http;
@@ -2042,7 +2047,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-type', 'application/json');
-        return this.http.post('/user', user, { headers: headers })
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].baseUrl + "/user", user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     // authenticateUser(user){
@@ -2056,22 +2061,21 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-type', 'application/json');
-        return this.http.post('/auth/login', user, { headers: headers })
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].baseUrl + "/auth/login", user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getSiingleProfile = function (loginId) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Content-type', 'application/json');
-        return this.http.get("/user/" + loginId, { headers: headers })
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].baseUrl + "/user/" + loginId, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.UpdateProfile = function (loginId, User) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
-        console.log('In service upadte' + JSON.stringify(User));
         headers.append('Content-type', 'application/json');
-        return this.http.patch("/user/" + loginId, User, { headers: headers })
+        return this.http.patch(__WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].baseUrl + "/user/" + loginId, User, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getProfile = function () {
@@ -2080,7 +2084,7 @@ var AuthService = /** @class */ (function () {
         // console.log('Token '+this.authToken);
         headers.append('authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.get('/user', { headers: headers })
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].baseUrl + "/user", { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.deleteProfile = function (id) {
@@ -2090,7 +2094,7 @@ var AuthService = /** @class */ (function () {
         // console.log('Token '+this.authToken);
         headers.append('authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.delete("/user/" + id, { headers: headers })
+        return this.http.delete(__WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].baseUrl + "/user/" + id, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.loadToken = function () {
@@ -2161,6 +2165,7 @@ var FileService = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2170,6 +2175,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 var ProductService = /** @class */ (function () {
@@ -2184,19 +2190,19 @@ var ProductService = /** @class */ (function () {
     ProductService.prototype.registerProduct = function (product) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-type', 'application/json');
-        return this.http.post('/product', product, { headers: headers })
+        return this.http.post(__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl + "/product", product, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.getProduct = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-type', 'application/json');
-        return this.http.get('/product', { headers: headers })
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl + "/product", { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.getSingleProduct = function (id) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-type', 'application/json');
-        return this.http.get("product/" + id, { headers: headers })
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl + "/product/" + id, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.deleteProduct = function (id) {
@@ -2205,13 +2211,13 @@ var ProductService = /** @class */ (function () {
         // console.log('Token '+this.authToken);
         headers.append('authorization', this.authToken);
         headers.append('Content-type', 'application/json');
-        return this.http.delete("/product/" + id, { headers: headers })
+        return this.http.delete(__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl + "/product/" + id, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.getCategory = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-type', 'application/json');
-        return this.http.get('/category', { headers: headers })
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl + "/category", { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.storeUserDatta = function (paramcnt, userId, product) {
@@ -2275,7 +2281,7 @@ var ProductService = /** @class */ (function () {
         console.log("In update product ");
         //console.log(JSON.stringify(product));
         headers.append('Content-type', 'application/json');
-        return this.http.patch("/product/" + id, product, { headers: headers })
+        return this.http.patch(__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl + "/product/" + id, product, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ProductService = __decorate([
@@ -2342,7 +2348,7 @@ var ValidateService = /** @class */ (function () {
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
     production: false,
-    baseUrl: '/api'
+    baseUrl: ''
 };
 
 

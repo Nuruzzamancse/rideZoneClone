@@ -1,32 +1,29 @@
-var express =  require('express');
-var mongoose = require('mongoose');
-var bodyPaser = require('body-parser');
+var express = require('express');
+var path = require('path');
 var cors = require('cors');
-var config = require('./config');
-let path= require('path');
+var passport = require('passport');
+var bodyParser = require('body-parser');
+
+var mongoose = require('mongoose');
+var config = require('./config/database');
+
+mongoose.connect(config.database, (err)=>{
+    if(err)
+    console.log(err);
+else
+console.log('Database connected successfully');
+})
 
 
-var app = express();
+const app = express();
 
-
-mongoose.connect(config.database,  (err) => {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log('Databse connected Successfully');
-    }
-});
-
-app.use(express.static(path.join(__dirname, 'public')));
-
-
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
-app.use(bodyPaser.json());
+app.use(bodyParser.json());
 
-console.log('In the server');
+app.use(express.static(path.join(__dirname, 'public')));
 
 var productRoute = require('./routes/product');
 app.use('/product', productRoute);
@@ -47,9 +44,6 @@ app.use('*', (req, res, next) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-app.get('/',(req,res)=>{
-    res.send('Foobar');
-})
 
 app.listen(PORT, ()=>{
     console.log('Serve has been started at port '+ PORT);
